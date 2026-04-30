@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usama Usman |  SEO and Growth Marketing Specialist</title>
+  <meta name="description" content="Usama Usman is an SEO Specialist in Karachi, Pakistan with 4+ years of experience in technical SEO, link building, and AI search optimization." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #11100e;
+      --surface: #1a1814cc;
+      --surface-strong: #24201aa8;
+      --text: #f5f3ef;
+      --muted: #bcb6a8;
+      --brand: #605b51;
+      --accent: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --border: rgba(255, 255, 255, 0.14);
+      --max-width: 1160px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.12), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(6, 182, 212, 0.08), transparent 40%),
+        linear-gradient(180deg, #15130f 0%, #0f0e0b 45%, #0a0907 100%);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      cursor: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .custom-cursor {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      z-index: 1200;
+      background: radial-gradient(circle, var(--accent-cyan), var(--accent));
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.85);
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .custom-cursor.active {
+      width: 26px;
+      height: 26px;
+      box-shadow: 0 0 28px rgba(6, 182, 212, 0.85);
+    }
+
+    .container {
+      width: min(var(--max-width), 92vw);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: clamp(64px, 9vw, 110px) 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3.8vw, 3.4rem);
+      margin-bottom: 20px;
+      line-height: 1.08;
+      letter-spacing: 0.2px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 62ch;
+      margin-bottom: 34px;
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+    }
+
+    .glass {
+      background: linear-gradient(140deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 18px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 44px rgba(0, 0, 0, 0.26);
+    }
+
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .tilt-card:hover {
+      box-shadow: 0 22px 36px rgba(0, 0, 0, 0.33), 0 0 20px rgba(59, 130, 246, 0.16);
+      border-color: rgba(59, 130, 246, 0.34);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1150px, calc(100% - 24px));
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-radius: 18px;
+      padding: 12px 20px;
+    }
+
+    .site-header.scrolled {
+      padding: 8px 18px;
+      background: rgba(13, 12, 10, 0.72);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 1.3rem;
+      color: #fff;
+      min-width: 48px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2vw, 30px);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ece6da;
+      font-weight: 500;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+      opacity: 1;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .menu-toggle span {
+      width: 23px;
+      height: 2px;
+      background: #f0ece3;
+      transition: all 0.25s ease;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 115px;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(24px, 6vw, 64px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #d3cfc4;
+      margin-bottom: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 8px 14px;
+      width: fit-content;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 9vw, 6.8rem);
+      line-height: 0.94;
+      margin-bottom: 20px;
+      letter-spacing: 0.2px;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      max-width: 60ch;
+      color: #cfc7b9;
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      line-height: 1.65;
+    }
+
+    .hero-photo {
+      width: min(380px, 100%);
+      margin-inline: auto;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      box-shadow: 0 30px 45px rgba(0, 0, 0, 0.36);
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto;
+      height: 58%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 65%);
+      pointer-events: none;
+    }
+
+    .stats {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat-card {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+      font-weight: 700;
+      color: #f9f7f4;
+      font-size: clamp(0.84rem, 1vw, 0.95rem);
+    }
+
+    .cta {
+      margin-top: 26px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+      color: #fff;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 24px rgba(59, 130, 246, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(6, 182, 212, 0.35);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+
+    .about-card {
+      padding: clamp(24px, 3vw, 34px);
+    }
+
+    .about-card p {
+      color: #d2cbbb;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ece9e2;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.88rem;
+      transition: all 0.23s ease;
+    }
+
+    .skill-pill:hover {
+      border-color: rgba(6, 182, 212, 0.46);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 18px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(59, 130, 246, 0.7), rgba(96, 91, 81, 0.25));
+      opacity: 0.8;
+    }
+
+    .timeline-item {
+      margin-left: 44px;
+      padding: 22px 22px 20px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, var(--accent), var(--accent-cyan));
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.75);
+    }
+
+    .exp-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-bottom: 8px;
+    }
+
+    .company-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(59, 130, 246, 0.45);
+      color: #d7ebff;
+    }
+
+    .role {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      margin-bottom: 8px;
+    }
+
+    .period {
+      color: #c8c0b2;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .timeline-item ul {
+      padding-left: 18px;
+      color: #d8d3c8;
+      line-height: 1.7;
+      display: grid;
+      gap: 5px;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .achievement-card {
+      padding: 20px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .achievement-card h3 {
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .achievement-card p {
+      color: #cfc7b8;
+      line-height: 1.63;
+      font-size: 0.96rem;
+    }
+
+    .achievement-graph {
+      margin-top: 8px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .cert-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .cert-card {
+      padding: 20px;
+      min-height: 138px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-cyan));
+      opacity: 0.9;
+    }
+
+    .cert-rank {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #dbecff;
+      border: 1px solid rgba(59, 130, 246, 0.45);
+      background: rgba(59, 130, 246, 0.14);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .cert-content {
+      display: grid;
+      gap: 7px;
+    }
+
+    .cert-card strong {
+      font-size: 1.08rem;
+      line-height: 1.4;
+    }
+
+    .cert-card span {
+      color: #c7bfaf;
+      font-size: 0.92rem;
+    }
+
+    .education-list,
+    .contact-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .edu-item,
+    .contact-card {
+      padding: 20px;
+    }
+
+    .edu-item h4,
+    .contact-card h4 {
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .edu-item p,
+    .contact-card p {
+      color: #c6beaf;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 30px 0 45px;
+      text-align: center;
+      color: #aa9f8a;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 24px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-content,
+      .about-grid,
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        max-width: 330px;
+      }
+
+      .cert-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        cursor: auto;
+      }
+
+      .custom-cursor {
+        display: none;
+      }
+
+      .site-header {
+        top: 10px;
+        width: calc(100% - 14px);
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        right: 10px;
+        width: min(250px, 84vw);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 18px;
+        border-radius: 14px;
+        background: rgba(14, 12, 9, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: all 0.24s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 100px 0 30px;
+      }
+
+      #hero-canvas {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 13vw, 3.5rem);
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 11px;
+      }
+
+      .timeline-item {
+        margin-left: 28px;
+        padding: 18px;
+      }
+
+      .timeline-item::before {
+        left: -24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <header class="site-header glass" id="header">
+    <div class="nav-inner">
+      <a href="#hero" class="logo interactive">UU</a>
+      <button class="menu-toggle interactive" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a class="interactive" href="#about">About</a></li>
+        <li><a class="interactive" href="#experience">Experience</a></li>
+        <li><a class="interactive" href="#achievements">Achievements</a></li>
+        <li><a class="interactive" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="container hero-content">
+        <div>
+          <span class="eyebrow hero-reveal">SEO & Growth Marketing Specialist · Karachi, Pakistan</span>
+          <h1 class="hero-reveal">Usama Usman</h1>
+          <p class="hero-reveal">4+ years growing websites through organic search — turning data into rankings, rankings into results.</p>
+          <a href="#contact" class="cta interactive hero-reveal">Let's Talk →</a>
+          <div class="stats hero-reveal">
+            <div class="stat-card">4+ Years Experience</div>
+            <div class="stat-card">60+ DR Backlinks</div>
+            <div class="stat-card">Page 1 Google Rankings</div>
+          </div>
+        </div>
+        <div class="hero-photo glass tilt-card hero-reveal">
+          <img src="assets/usama-photo.png" alt="Usama Usman portrait" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title fade-up">About</h2>
+        <div class="about-grid">
+          <article class="about-card glass tilt-card fade-up">
+            <p>I’m an SEO and Growth Marketing Specialist with 4+ years of hands-on experience helping businesses grow through organic search and data-driven marketing. I focus on building practical strategies that not only improve keyword rankings but also drive meaningful traffic and conversions. My work spans technical SEO, on-page optimization, link building, and growth-focused experimentation, where I look for scalable opportunities that others often miss. I’ve worked across different types of websites, which has helped me understand how to align SEO with overall business goals. For me, it’s not just about getting traffic it’s about building sustainable growth systems that deliver long-term results and real impact.</p>
+          </article>
+          <article class="about-card glass fade-up">
+            <div class="skills-cloud">
+              <span class="skill-pill interactive">Technical SEO</span>
+              <span class="skill-pill interactive">Link Building</span>
+              <span class="skill-pill interactive">Keyword Research</span>
+              <span class="skill-pill interactive">On-Page SEO</span>
+              <span class="skill-pill interactive">Off-Page SEO</span>
+              <span class="skill-pill interactive">Google Analytics</span>
+              <span class="skill-pill interactive">Search Console</span>
+              <span class="skill-pill interactive">SEMrush</span>
+              <span class="skill-pill interactive">Ahrefs</span>
+              <span class="skill-pill interactive">Screaming Frog</span>
+              <span class="skill-pill interactive">Surfer SEO</span>
+              <span class="skill-pill interactive">Google Looker Studio</span>
+              <span class="skill-pill interactive">Local SEO</span>
+              <span class="skill-pill interactive">E.E.A.T</span>
+              <span class="skill-pill interactive">Content Marketing</span>
+              <span class="skill-pill interactive">Digital PR</span>
+              <span class="skill-pill interactive">AI Search Optimization</span>
+              <span class="skill-pill interactive">WordPress</span>
+              <span class="skill-pill interactive">CRO</span>
+              <span class="skill-pill interactive">Social Media Marketing</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title fade-up">Experience</h2>
+        <div class="timeline">
+          <article class="timeline-item glass tilt-card slide-left">
+            <div class="exp-meta">
+              <span class="company-badge">Intersys Ltd</span>
+              <span class="period">Jun 2023 – Present</span>
+            </div>
+            <h3 class="role">Senior SEO Executive</h3>
+            <ul>
+              <li>Daily website audits for technical SEO and on-page health</li>
+              <li>Lead outreach campaigns securing high-authority backlinks</li>
+              <li>Build and execute link-building strategies for keyword rankings</li>
+              <li>Weekly keyword tracking and SEO reporting (GA4, Search Console)</li>
+              <li>Optimize content for AI-driven search and LLM discoverability</li>
+              <li>Collaborate with developers on technical and content SEO issues</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item glass tilt-card slide-left">
+            <div class="exp-meta">
+              <span class="company-badge">Salsoft Technologies (Pvt) Ltd</span>
+              <span class="period">Dec 2022 – May 2023</span>
+            </div>
+            <h3 class="role">Junior SEO Executive</h3>
+            <ul>
+              <li>Executed link building and regular website audits</li>
+              <li>Identified and fixed technical SEO issues with dev team</li>
+              <li>Uploaded and optimized blog content using on-page SEO techniques</li>
+              <li>Monitored keyword rankings and prepared GA4/Search Console reports</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item glass tilt-card slide-left">
+            <div class="exp-meta">
+              <span class="company-badge">Vitamindeck</span>
+              <span class="period">Jan 2022 – Nov 2022</span>
+            </div>
+            <h3 class="role">SEO & Social Media Intern</h3>
+            <ul>
+              <li>Keyword research, backlink building, internal linking</li>
+              <li>Content optimization with on-page SEO best practices</li>
+              <li>Grew Instagram from 5K → 7K organic followers</li>
+              <li>Collaborated with design team on social visuals and content calendar</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="achievements">
+      <div class="container">
+        <h2 class="section-title fade-up">Key Achievements</h2>
+        <div class="achievements-grid">
+          <article class="achievement-card glass tilt-card fade-up">
+            <h3>📈 Organic Traffic Growth</h3>
+            <p>Consistent on-page and off-page SEO efforts delivering measurable organic traffic gains across multiple websites.</p>
+            <div class="achievement-graph">
+              <img src="assets/seo-graph.png" alt="Organic traffic growth graph" />
+            </div>
+          </article>
+          <article class="achievement-card glass tilt-card fade-up">
+            <h3>🔗 High-Authority Backlinks</h3>
+            <p>Secured guest posts and links from 60+ DR websites with 50K+ monthly visitors, boosting domain authority.</p>
+          </article>
+          <article class="achievement-card glass tilt-card fade-up">
+            <h3>🥇 First-Page Rankings</h3>
+            <p>Ranked competitive keywords on Page 1 of Google through focused on-page optimization and strategic link-building.</p>
+          </article>
+          <article class="achievement-card glass tilt-card fade-up">
+            <h3>🤝 Cross-Team Collaboration</h3>
+            <p>Worked with content and dev teams to resolve technical SEO issues and improve overall site health.</p>
+          </article>
+          <article class="achievement-card glass tilt-card fade-up">
+            <h3>📱 Social Media Growth</h3>
+            <p>Grew an Instagram page organically from 5K to 7K followers with consistent SEO-driven strategy.</p>
+          </article>
+          <article class="achievement-card glass tilt-card fade-up">
+            <h3>🤖 AI Search Optimization</h3>
+            <p>Optimized website structure and content for AI-driven search engines and LLMs — forward-looking expertise.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container">
+        <h2 class="section-title fade-up">Certifications</h2>
+        <div class="cert-row">
+          <article class="cert-card glass tilt-card fade-up">
+            <span class="cert-rank">01</span>
+            <div class="cert-content">
+              <strong>Digital Marketing</strong>
+              <span>Click5 Institute</span>
+            </div>
+          </article>
+          <article class="cert-card glass tilt-card fade-up">
+            <span class="cert-rank">02</span>
+            <div class="cert-content">
+              <strong>SEO Certified</strong>
+              <span>HubSpot Academy</span>
+            </div>
+          </article>
+          <article class="cert-card glass tilt-card fade-up">
+            <span class="cert-rank">03</span>
+            <div class="cert-content">
+              <strong>SEO Crash Course</strong>
+              <span>SEMrush Academy</span>
+            </div>
+          </article>
+          <article class="cert-card glass tilt-card fade-up">
+            <span class="cert-rank">04</span>
+            <div class="cert-content">
+              <strong>Social Media Marketing</strong>
+              <span>HP Foundation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section-title fade-up">Education</h2>
+        <div class="education-list">
+          <article class="edu-item glass tilt-card fade-up">
+            <h4>Virtual University of Pakistan</h4>
+            <p>BS Computer Science (Expected 2028)</p>
+          </article>
+          <article class="edu-item glass tilt-card fade-up">
+            <h4>Jamia Millia Government Degree College</h4>
+            <p>Intermediate Pre-Engineering, Karachi Board</p>
+          </article>
+          <article class="edu-item glass tilt-card fade-up">
+            <h4>PIM</h4>
+            <p>Diploma in Digital Marketing</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title fade-up">Let's grow your organic traffic.</h2>
+        <p class="section-subtitle fade-up">Open to freelance projects, full-time roles, and SEO consultations.</p>
+        <div class="contact-grid">
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>Email</h4>
+            <p><a class="interactive" href="mailto:usamausman2580@gmail.com">usamausman2580@gmail.com</a></p>
+          </article>
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>Phone</h4>
+            <p><a class="interactive" href="tel:+923448924340">+92 344 8924 340</a></p>
+          </article>
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>LinkedIn</h4>
+            <p><a class="interactive" href="https://pk.linkedin.com/in/usama-usman-shaikh" target="_blank" rel="noreferrer">pk.linkedin.com/in/usama-usman-shaikh</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Usama Usman · SEO & Growth Marketing Specialist · Karachi, Pakistan
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mobile menu
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    // Navbar behavior
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 24);
+    });
+
+    // GSAP reveal animations
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    heroTl.from(".hero-reveal", {
+      y: 36,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.9
+    });
+
+    gsap.utils.toArray(".fade-up").forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 86%"
+        },
+        y: 35,
+        opacity: 0,
+        duration: 0.85,
+        ease: "power3.out"
+      });
+    });
+
+    gsap.utils.toArray(".slide-left").forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 84%"
+        },
+        x: -45,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out"
+      });
+    });
+
+    // Cursor interaction
+    const cursor = document.getElementById("cursor");
+    const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const target = { x: pointer.x, y: pointer.y };
+
+    window.addEventListener("mousemove", (e) => {
+      target.x = e.clientX;
+      target.y = e.clientY;
+    });
+
+    document.querySelectorAll(".interactive").forEach((el) => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("active"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("active"));
+    });
+
+    function updateCursor() {
+      pointer.x += (target.x - pointer.x) * 0.18;
+      pointer.y += (target.y - pointer.y) * 0.18;
+      cursor.style.transform = `translate(${pointer.x}px, ${pointer.y}px) translate(-50%, -50%)`;
+      requestAnimationFrame(updateCursor);
+    }
+    if (window.innerWidth > 760) updateCursor();
+
+    // 3D tilt hover
+    document.querySelectorAll(".tilt-card").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const rx = (0.5 - y) * 8;
+        const ry = (x - 0.5) * 10;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+      });
+    });
+
+    // Three.js background (desktop only)
+    if (window.innerWidth > 760) {
+      const canvas = document.getElementById("hero-canvas");
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 28;
+
+      const particlesCount = 1500;
+      const positions = new Float32Array(particlesCount * 3);
+      const scales = new Float32Array(particlesCount);
+
+      for (let i = 0; i < particlesCount; i++) {
+        const i3 = i * 3;
+        positions[i3] = (Math.random() - 0.5) * 70;
+        positions[i3 + 1] = (Math.random() - 0.5) * 50;
+        positions[i3 + 2] = (Math.random() - 0.5) * 55;
+        scales[i] = Math.random();
+      }
+
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
+
+      const material = new THREE.PointsMaterial({
+        size: 0.16,
+        color: new THREE.Color("#3b82f6"),
+        transparent: true,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      });
+
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+
+      const torus = new THREE.Mesh(
+        new THREE.TorusGeometry(6, 1.3, 24, 120),
+        new THREE.MeshBasicMaterial({
+          color: "#06b6d4",
+          wireframe: true,
+          transparent: true,
+          opacity: 0.16
+        })
+      );
+      torus.position.set(8, -2, -12);
+      scene.add(torus);
+
+      const mouse = { x: 0, y: 0 };
+      window.addEventListener("mousemove", (event) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      });
+
+      const clock = new THREE.Clock();
+      function animate() {
+        const elapsed = clock.getElapsedTime();
+        points.rotation.y = elapsed * 0.03;
+        points.rotation.x = elapsed * 0.015;
+        torus.rotation.x = elapsed * 0.16;
+        torus.rotation.y = elapsed * 0.18;
+        points.position.x += (mouse.x * 1.8 - points.position.x) * 0.03;
+        points.position.y += (mouse.y * 1.2 - points.position.y) * 0.03;
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      window.addEventListener("resize", () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      });
+    }
+  </script>
+</body>
+</html>

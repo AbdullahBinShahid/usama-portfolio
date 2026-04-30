@@ -81,7 +81,7 @@
     }
 
     .section {
-      padding: clamp(64px, 9vw, 110px) 0;
+      padding: clamp(42px, 6vw, 74px) 0;
       position: relative;
       z-index: 2;
     }
@@ -89,7 +89,7 @@
     .section-title {
       font-family: "Playfair Display", serif;
       font-size: clamp(2rem, 3.8vw, 3.4rem);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       line-height: 1.08;
       letter-spacing: 0.2px;
     }
@@ -97,7 +97,7 @@
     .section-subtitle {
       color: var(--muted);
       max-width: 62ch;
-      margin-bottom: 34px;
+      margin-bottom: 22px;
       font-size: clamp(1rem, 1.5vw, 1.15rem);
     }
 
@@ -247,23 +247,80 @@
       line-height: 1.65;
     }
 
-    .hero-photo {
-      width: min(380px, 100%);
+    .hero-photo-wrap {
+      width: min(430px, 100%);
       margin-inline: auto;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
       position: relative;
-      box-shadow: 0 30px 45px rgba(0, 0, 0, 0.36);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    .hero-photo-wrap::before,
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-photo-wrap::before {
+      width: clamp(250px, 30vw, 360px);
+      height: clamp(250px, 30vw, 360px);
+      border: 1px dashed rgba(59, 130, 246, 0.45);
+      animation: spinRing 16s linear infinite;
+    }
+
+    .hero-photo-wrap::after {
+      width: clamp(280px, 34vw, 395px);
+      height: clamp(280px, 34vw, 395px);
+      border: 1px solid rgba(6, 182, 212, 0.26);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.2), inset 0 0 26px rgba(6, 182, 212, 0.12);
+      animation: spinRingReverse 20s linear infinite;
+    }
+
+    .hero-photo {
+      width: clamp(220px, 28vw, 340px);
+      aspect-ratio: 1 / 1;
+      margin-inline: auto;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.26);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.45), 0 0 30px rgba(59, 130, 246, 0.24);
+      animation: floatPhoto 4.8s ease-in-out infinite;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 14%;
+      transform: scale(1);
     }
 
     .hero-photo::after {
       content: "";
       position: absolute;
-      inset: -40% -20% auto;
-      height: 58%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 65%);
+      inset: 0;
+      background: radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.28), transparent 34%);
       pointer-events: none;
+    }
+
+    @keyframes floatPhoto {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes spinRing {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spinRingReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
     }
 
     .stats {
@@ -513,9 +570,19 @@
       gap: 14px;
     }
 
+    .education-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
     .edu-item,
     .contact-card {
-      padding: 20px;
+      padding: 16px;
     }
 
     .edu-item h4,
@@ -531,13 +598,157 @@
       word-break: break-word;
     }
 
+    .edu-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(96, 91, 81, 0.55);
+      min-height: 148px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .edu-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-cyan));
+      opacity: 0.95;
+    }
+
+    .edu-item::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: -28px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.2), transparent 65%);
+      pointer-events: none;
+    }
+
+    .edu-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(6, 182, 212, 0.5);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3), 0 0 22px rgba(59, 130, 246, 0.2);
+    }
+
+    .edu-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .edu-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(59, 130, 246, 0.42);
+      color: #e6f1ff;
+      font-size: 1rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .edu-meta {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+      color: #efe8da;
+      font-size: 0.78rem;
+      padding: 6px 10px;
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 168px;
+      border: 1px solid rgba(59, 130, 246, 0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: -30% auto auto -12%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.26), transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(6, 182, 212, 0.5);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28), 0 0 24px rgba(59, 130, 246, 0.2);
+    }
+
+    .contact-card h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 1.08rem;
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(59, 130, 246, 0.42);
+      color: #e5f0ff;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-icon svg {
+      width: 21px;
+      height: 21px;
+      display: block;
+    }
+
+    .contact-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-top: 8px;
+      color: #f4f7ff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.28), rgba(6, 182, 212, 0.18));
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact-action:hover {
+      transform: translateY(-1px);
+      border-color: rgba(6, 182, 212, 0.6);
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.3);
+    }
+
     footer {
-      padding: 30px 0 45px;
+      padding: 22px 0 30px;
       text-align: center;
       color: #aa9f8a;
       font-size: 0.9rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-      margin-top: 24px;
+      margin-top: 12px;
     }
 
     @media (max-width: 980px) {
@@ -547,16 +758,28 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-photo {
-        max-width: 330px;
+      .hero-photo-wrap {
+        max-width: 380px;
       }
 
       .cert-row {
         grid-template-columns: 1fr;
       }
+
+      .education-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 760px) {
+      .education-list {
+        grid-template-columns: 1fr;
+      }
+
       body {
         cursor: auto;
       }
@@ -659,12 +882,14 @@
           <a href="#contact" class="cta interactive hero-reveal">Let's Talk →</a>
           <div class="stats hero-reveal">
             <div class="stat-card">4+ Years Experience</div>
-            <div class="stat-card">60+ DR Backlinks</div>
+            <div class="stat-card">Technical & On-Page SEO Execution</div>
             <div class="stat-card">Page 1 Google Rankings</div>
           </div>
         </div>
-        <div class="hero-photo glass tilt-card hero-reveal">
-          <img src="assets/usama-photo.png" alt="Usama Usman portrait" />
+        <div class="hero-photo-wrap hero-reveal">
+          <div class="hero-photo glass">
+            <img src="assets/usama-photo.png" alt="Usama Usman portrait" />
+          </div>
         </div>
       </div>
     </section>
@@ -829,16 +1054,34 @@
         <h2 class="section-title fade-up">Education</h2>
         <div class="education-list">
           <article class="edu-item glass tilt-card fade-up">
-            <h4>Virtual University of Pakistan</h4>
-            <p>BS Computer Science (Expected 2028)</p>
+            <div>
+              <div class="edu-top">
+                <span class="edu-icon">🎓</span>
+                <h4>Virtual University of Pakistan</h4>
+              </div>
+              <p>BS Computer Science (Expected 2028)</p>
+            </div>
+            <span class="edu-meta">Karachi, Pakistan</span>
           </article>
           <article class="edu-item glass tilt-card fade-up">
-            <h4>Jamia Millia Government Degree College</h4>
-            <p>Intermediate Pre-Engineering, Karachi Board</p>
+            <div>
+              <div class="edu-top">
+                <span class="edu-icon">🏛</span>
+                <h4>Jamia Millia Government Degree College</h4>
+              </div>
+              <p>Intermediate Pre-Engineering, Karachi Board</p>
+            </div>
+            <span class="edu-meta">Academic Foundation</span>
           </article>
           <article class="edu-item glass tilt-card fade-up">
-            <h4>PIM</h4>
-            <p>Diploma in Digital Marketing</p>
+            <div>
+              <div class="edu-top">
+                <span class="edu-icon">📊</span>
+                <h4>PIM</h4>
+              </div>
+              <p>Diploma in Digital Marketing</p>
+            </div>
+            <span class="edu-meta">Professional Diploma</span>
           </article>
         </div>
       </div>
@@ -850,16 +1093,100 @@
         <p class="section-subtitle fade-up">Open to freelance projects, full-time roles, and SEO consultations.</p>
         <div class="contact-grid">
           <article class="contact-card glass tilt-card fade-up">
-            <h4>Email</h4>
-            <p><a class="interactive" href="mailto:usamausman2580@gmail.com">usamausman2580@gmail.com</a></p>
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path fill="#EA4335" d="M1 4.5A2.5 2.5 0 0 1 3.5 2h17A2.5 2.5 0 0 1 23 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 19.5v-15Z"/>
+                  <path fill="#FFFFFF" d="M3 5.2 12 12l9-6.8V19a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5.2Z"/>
+                  <path fill="#C5221F" d="M21 5.2V5l-9 6.8L3 5v.2l9 6.7 9-6.7Z"/>
+                </svg>
+              </span>
+              Email
+            </h4>
+            <p>Reach out for collaborations and project discussions.</p>
+            <a class="contact-action interactive" href="mailto:usamausman2580@gmail.com">Email</a>
           </article>
           <article class="contact-card glass tilt-card fade-up">
-            <h4>Phone</h4>
-            <p><a class="interactive" href="tel:+923448924340">+92 344 8924 340</a></p>
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path fill="#22C55E" d="M20.7 15.6c-1.2-1.2-2.5-2-3.8-2.2-.6-.1-1.2.1-1.6.5l-1.4 1.4a16.9 16.9 0 0 1-5.2-5.2l1.4-1.4c.4-.4.6-1 .5-1.6-.2-1.3-1-2.6-2.2-3.8-.5-.5-1.2-.7-1.9-.5C4.7 3.3 3.2 4.8 3 6.6c-.4 3.5 1.1 7.5 4.4 10.8 3.3 3.3 7.3 4.8 10.8 4.4 1.8-.2 3.3-1.7 3.8-3.5.2-.7 0-1.4-.5-1.9Z"/>
+                </svg>
+              </span>
+              Phone
+            </h4>
+            <p>Available for freelance calls and SEO consultations.</p>
+            <a class="contact-action interactive" href="tel:+923448924340">Phone</a>
           </article>
           <article class="contact-card glass tilt-card fade-up">
-            <h4>LinkedIn</h4>
-            <p><a class="interactive" href="https://pk.linkedin.com/in/usama-usman-shaikh" target="_blank" rel="noreferrer">pk.linkedin.com/in/usama-usman-shaikh</a></p>
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path fill="#0A66C2" d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.9-2 3.9-2 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4V9Z"/>
+                </svg>
+              </span>
+              LinkedIn
+            </h4>
+            <p>Connect professionally and stay updated with my work.</p>
+            <a class="contact-action interactive" href="https://pk.linkedin.com/in/usama-usman-shaikh" target="_blank" rel="noreferrer">LinkedIn</a>
+          </article>
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <defs>
+                    <linearGradient id="igGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#F58529"/>
+                      <stop offset="40%" stop-color="#DD2A7B"/>
+                      <stop offset="75%" stop-color="#8134AF"/>
+                      <stop offset="100%" stop-color="#515BD4"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="url(#igGradient)"/>
+                  <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>
+                  <circle cx="17.2" cy="6.9" r="1.2" fill="#fff"/>
+                </svg>
+              </span>
+              Instagram
+            </h4>
+            <p>Follow for updates, insights, and behind-the-scenes content.</p>
+            <a class="contact-action interactive" href="https://www.instagram.com/usama.usman7221?igsh=MXJmcXRjOThkc3h1bQ==" target="_blank" rel="noreferrer">Instagram</a>
+          </article>
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path fill="#1877F2" d="M24 12A12 12 0 1 0 10.1 23.9v-8.4H7.1V12h3V9.3c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12Z"/>
+                </svg>
+              </span>
+              Facebook
+            </h4>
+            <p>Connect and stay in touch through my Facebook profile.</p>
+            <a class="contact-action interactive" href="https://www.facebook.com/share/17LQ9VQME3/" target="_blank" rel="noreferrer">Facebook</a>
+          </article>
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path fill="#1185FE" d="M12 10.7c1.6-2.9 4.2-5.7 6.5-7.1 1.7-1 3.5-.2 3 1.8-.8 3.2-2.9 7.1-5.9 8.4 2.2.2 4.7 1.7 5.4 4.2.8 2.8-1.3 4.8-4.1 3.9-2.4-.8-4-2.7-4.9-5-1 2.3-2.6 4.2-4.9 5-2.8.9-4.9-1.1-4.1-3.9.7-2.5 3.2-4 5.4-4.2C5.4 12.5 3.3 8.6 2.5 5.4c-.5-2 1.3-2.8 3-1.8 2.3 1.4 4.9 4.2 6.5 7.1Z"/>
+                </svg>
+              </span>
+              Bluesky
+            </h4>
+            <p>Find my latest posts and thoughts on Bluesky.</p>
+            <a class="contact-action interactive" href="https://bsky.app/profile/usama7221.bsky.social" target="_blank" rel="noreferrer">Bluesky</a>
+          </article>
+          <article class="contact-card glass tilt-card fade-up">
+            <h4>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path fill="#111111" d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.4l4.4 5.8L18.9 2Zm-1.1 18h1.7L6.4 3.9H4.6L17.8 20Z"/>
+                </svg>
+              </span>
+              X
+            </h4>
+            <p>Follow my SEO and growth-related updates on X.</p>
+            <a class="contact-action interactive" href="https://x.com/usamausman_2001" target="_blank" rel="noreferrer">X</a>
           </article>
         </div>
       </div>
